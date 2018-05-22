@@ -21,14 +21,17 @@ def thoseInRange(data, lower, upper):
 
 
 def showRanges(data):
-    lower = boundaries[0]
-    for upper in boundaries[1:]:
-        candidates = thoseInRange(data,lower,upper)
-        candidates.sort()
-        print("Between %s and %s"%(lower,upper))
-        for student in candidates:
-            print("  "+student)
-        lower=upper+1
+	if len(boundaries) > 0:
+		lower = boundaries[0]
+		for upper in boundaries[1:]:
+		    candidates = thoseInRange(data,lower,upper)
+		    candidates.sort()
+		    print("Between %s and %s"%(lower,upper))
+		    for student in candidates:
+		        print("  "+student)
+		    lower=upper+1
+	else:
+		print("empty file")
 
 
 fname = open(sys.argv[1])
